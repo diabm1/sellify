@@ -18,7 +18,8 @@ function Signin(props) {
     return () => {
       //
     };
-  }, [userInfo]);
+  },
+   [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -51,7 +52,7 @@ function Signin(props) {
           <button type="submit" className="button primary">Signin</button>
         </li>
         <li>
-          New to amazona?
+          New to Sellify?
         </li>
         <li>
           <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your amazona account</Link>

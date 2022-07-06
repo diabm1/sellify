@@ -74,10 +74,10 @@ function HomeView(props) {
                 <div className="product-brand">{product.brand}</div>
                 <div className="product-price">${product.price}</div>
                 <div className="product-rating">
-                  <Rating
+                  {/* <Rating
                     value={product.rating}
                     text={product.numReviews + ' reviews'}
-                  />
+                  /> */}
                 </div>
               </div>
             </li>
