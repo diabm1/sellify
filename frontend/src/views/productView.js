@@ -66,10 +66,10 @@ function ProductView(props) {
                 </li>
                 <li>
                   <a href="#reviews">
-                    <Rating
+                    {/* <Rating
                       value={product.rating}
                       text={product.numReviews + ' reviews'}
-                    />
+                    /> */}
                   </a>
                 </li>
                 <li>
@@ -124,7 +124,7 @@ function ProductView(props) {
                 <li key={review._id}>
                   <div>{review.name}</div>
                   <div>
-                    <Rating value={review.rating}></Rating>
+                    {/* <Rating value={review.rating}></Rating> */}
                   </div>
                   <div>{review.createdAt.substring(0, 10)}</div>
                   <div>{review.comment}</div>

@@ -5,9 +5,9 @@ import { createOrder, detailsOrder, payOrder } from '../actions/orderActions';
 
 function placeOrder(props) {
 
-  const orderPay = useSelector(state => state.orderPay);
-  const { loading: loadingPay, success: successPay, error: errorPay } = orderPay;
-  const dispatch = useDispatch();
+//   const orderPay = useSelector(state => state.orderPay);
+//   const { loading: loadingPay, success: successPay, error: errorPay } = orderPay;
+//   const dispatch = useDispatch();
   useEffect(() => {
     if (successPay) {
       props.history.push("/profile");
