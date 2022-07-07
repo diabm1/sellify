@@ -1,7 +1,9 @@
 import React from "react";
 
 // I can't get the page to load so this component is untested
-// The page is currently filled with example cards using a default react logo
+// The function should create a card for every product in the database
+// There should also have a search/filter feature at the top of the page
+// The component currently returns example data
 // Josiah 7/7
 function Products() {
 
