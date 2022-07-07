@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import './App.css';
+import '../src/App.css';
 import CartView from './views/cartView';
 
 import HomeView from './views/homeView';
@@ -9,6 +9,7 @@ import Signin from './views/signIn';
 import { useSelector } from 'react-redux';
 import Register from './views/Register';
 import ProductsView from './views/productsView';
+
 import ShippingView from './views/shippingView';
 import PaymentView from './views/paymentView';
 // import PlaceOrder from './views/PlaceOrder';
