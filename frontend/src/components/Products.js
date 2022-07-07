@@ -1,5 +1,8 @@
 import React from "react";
 
+// I can't get the page to load so this component is untested
+// The page is currently filled with example cards using a default react logo
+// Josiah 7/7
 function Products() {
 
     return (
@@ -34,3 +37,5 @@ function Products() {
         </div>
     )
 }
+
+export default Products;
