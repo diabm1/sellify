@@ -1,3 +1,4 @@
+import { response } from "express";
 import React from "react";
 
 // I can't get the page to load so this component is untested
@@ -6,35 +7,40 @@ import React from "react";
 // The component currently returns example data
 // Josiah 7/7
 function Products() {
+    fetch('/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        for (let i = 0; i < response.length; i++) {
+            const {
+                name,
+                image,
+                brand,
+                price,
+                ...rest
+            } = response[i];
+
+            return (
+                <div className="card" style="width: 18rem;">
+                    <img className="card-img-top" src={`${image}`} alt={`${name}`}/>
+                    <div className="card-body">
+                        <h1 className="card-text">${name}</h1>
+                        <h2 className="card-text">%{price}</h2>
+                        <h3 className="card-text">%{brand}</h3>
+                    </div>
+                </div>
+            )
+        }
+    })
 
     return (
         <div className="container">
-            <h1>Product</h1>
+            <h1>Products</h1>
             <div className="row">
-                <div className="card" style="width: 18rem;">
-                    <img className="card-img-top" src="frontend\public\logo512.png" alt="Card image cap"/>
-                    <div className="card-body">
-                        <p className="card-text">Pants</p>
-                    </div>
-                </div>
-                <div className="card" style="width: 18rem;">
-                    <img className="card-img-top" src="frontend\public\logo512.png" alt="Card image cap"/>
-                    <div className="card-body">
-                        <p className="card-text">Socks</p>
-                    </div>
-                </div>
-                <div className="card" style="width: 18rem;">
-                    <img className="card-img-top" src="frontend\public\logo512.png" alt="Card image cap"/>
-                    <div className="card-body">
-                        <p className="card-text">Artificially Flavored Handsoap</p>
-                    </div>
-                </div>
-                <div className="card" style="width: 18rem;">
-                    <img className="card-img-top" src="frontend\public\logo512.png" alt="Card image cap"/>
-                    <div className="card-body">
-                        <p className="card-text">Ribbed for her pleasure coffee machines</p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     )
