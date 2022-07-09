@@ -3,7 +3,7 @@ import { BrowserRouter as  Router, Route, Routes} from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost'
 import './App.css';
-import HomeScreen from './screens/HomeScreen';
+// import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
@@ -51,18 +51,18 @@ function App() {
             <Routes>
               <Route path="/" element={<Basic />} />
                
-              {/*<Route path="/orders" element={OrdersScreen} />
-              <Route path="/profile" element={ProfileScreen} />
-              <Route path="/order/:id" element={OrderScreen} />
-              <Route path="/products" element={ProductsScreen} />
-              <Route path="/shipping" element={ShippingScreen} />
-              <Route path="/payment" element={PaymentScreen} />
-              <Route path="/placeorder" element={PlaceOrderScreen} />
-              <Route path="/signin" element={SigninScreen} />
-              <Route path="/register" element={RegisterScreen} />
-              <Route path="/product/:id" element={ProductScreen} />
-              <Route path="/cart/:id?" element={CartScreen} />
-              <Route path="/category/:id" element={HomeScreen} />*/}
+              <Route path="/orders" element={<OrdersScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/order/:id" element={<OrderScreen />} />
+              <Route path="/products" element={<ProductsScreen/>} />
+              <Route path="/shipping" element={<ShippingScreen />} />
+              <Route path="/payment" element={<PaymentScreen />} />
+              <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/signin" element={<SigninScreen />} />
+              <Route path="/register" element={<RegisterScreen />} />
+              <Route path="/product/:id" element={<ProductScreen />} />
+              <Route path="/cart/:id?" element={<CartScreen />} />
+              {/* <Route path="/category/:id" element={HomeScreen} /> */}
             </Routes>
           </div>
         </main>
