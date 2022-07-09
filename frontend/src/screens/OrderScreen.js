@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import { detailsOrder, payOrder } from '../actions/orderActions';
+import PaypalButton from '../components/PaypalButton';
+function OrderScreen(props) {
 
-function placeOrder(props) {
-
-//   const orderPay = useSelector(state => state.orderPay);
-//   const { loading: loadingPay, success: successPay, error: errorPay } = orderPay;
-//   const dispatch = useDispatch();
+  const orderPay = useSelector(state => state.orderPay);
+  const { loading: loadingPay, success: successPay, error: errorPay } = orderPay;
+  const dispatch = useDispatch();
   useEffect(() => {
     if (successPay) {
       props.history.push("/profile");
@@ -134,4 +134,4 @@ function placeOrder(props) {
 
 }
 
-export default placeOrder;
+export default OrderScreen;

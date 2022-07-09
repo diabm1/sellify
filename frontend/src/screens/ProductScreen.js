@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailsProduct, saveProductReview } from '../actions/productActions';
-// import Rating from '../components/Rating';
+import Rating from '../components/Rating';
 import { PRODUCT_REVIEW_SAVE_RESET } from '../constants/productConstants';
 
-function ProductView(props) {
+function ProductScreen(props) {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
@@ -66,10 +66,10 @@ function ProductView(props) {
                 </li>
                 <li>
                   <a href="#reviews">
-                    {/* <Rating
+                    <Rating
                       value={product.rating}
                       text={product.numReviews + ' reviews'}
-                    /> */}
+                    />
                   </a>
                 </li>
                 <li>
@@ -124,7 +124,7 @@ function ProductView(props) {
                 <li key={review._id}>
                   <div>{review.name}</div>
                   <div>
-                    {/* <Rating value={review.rating}></Rating> */}
+                    <Rating value={review.rating}></Rating>
                   </div>
                   <div>{review.createdAt.substring(0, 10)}</div>
                   <div>{review.comment}</div>
@@ -178,4 +178,4 @@ function ProductView(props) {
     </div>
   );
 }
-export default ProductView;
+export default ProductScreen;

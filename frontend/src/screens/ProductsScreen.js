@@ -7,7 +7,7 @@ import {
   deleteProdcut,
 } from '../actions/productActions';
 
-function ProductsView(props) {
+function ProductsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [id, setId] = useState('');
   const [name, setName] = useState('');
@@ -19,7 +19,7 @@ function ProductsView(props) {
   const [description, setDescription] = useState('');
   const [uploading, setUploading] = useState(false);
   const productList = useSelector((state) => state.productList);
-  const { products } = productList;
+  const { loading, products, error } = productList;
 
   const productSave = useSelector((state) => state.productSave);
   const {
@@ -244,4 +244,4 @@ function ProductsView(props) {
     </div>
   );
 }
-export default ProductsView;
+export default ProductsScreen;

@@ -1,99 +1,75 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter as  Router, Route, Routes} from 'react-router-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost'
 import './App.css';
-import CartView from './views/cartView';
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
+// import { useSelector } from 'react-redux';
+import RegisterScreen from './screens/RegisterScreen';
+import ProductsScreen from './screens/ProductsScreen';
+import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import OrdersScreen from './screens/OrdersScreen';
+import Header from './components/Header';
+//import { Component } from 'react';
 
-import HomeView from './views/homeView';
-import ProductView from './views/productView';
-import Signin from './views/signIn';
-import { useSelector } from 'react-redux';
-import Register from './views/Register';
-import ProductsView from './views/productsView';
-import ShippingView from './views/shippingView';
-import PaymentView from './views/paymentView';
-// import PlaceOrder from './views/PlaceOrder';
-import Orders from './views/Orders';
-import ProfileView from './views/profileView';
-// import HomeView from './views/homeView';
-// import ProductView from './views/productView';
-// import ProductsView from './views/productsView';
 
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
+  uri: "/graphql",
+});
+
+function Basic() {
+  return <h1>Hello</h1>
+}
 
 
 function App() {
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-
-  const openMenu = () => {
-    document.querySelector('.sidebar').classList.add('open');
-  };
-  const closeMenu = () => {
-    document.querySelector('.sidebar').classList.remove('open');
-  };
+  
+  
   return (
-    <BrowserRouter>
-      <div className="grid-container">
-        <header className="header">
-          <div className="brand">
-            <button onClick={openMenu}>&#9776;</button>
-            <Link to="/">Sellify</Link>
-          </div>
-          <div className="header-links">
-            <a href="cart.html">Cart</a>
-            {userInfo ? (
-              <Link to="/profile">{userInfo.name}</Link>
-            ) : (
-              <Link to="/signin">Sign In</Link>
-            )}
-            {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <a href="#">Admin</a>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/orders">Orders</Link>
-                    <Link to="/products">Products</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-        </header>
-        <aside className="sidebar">
-          <h3>Shopping Categories</h3>
-          <button className="sidebar-close-button" onClick={closeMenu}>
-            x
-          </button>
-          <ul className="categories">
-            <li>
-              <Link to="/category/Pants">Pants</Link>
-            </li>
-
-            <li>
-              <Link to="/category/Shirts">Shirts</Link>
-            </li>
-          </ul>
-        </aside>
+    <ApolloProvider client ={client}>
+    <Router>
+      <Header />
+        
         <main className="main">
           <div className="content">
-            <Route path='/cart/:id?' component ={CartView} />
-            <Route path="/Orders" component={Orders} />
-            <Route path="/profile" component={ProfileView} />
-            {/* <Route path="/PlaceOrder/:id" component={placeOrder} /> */}
-            <Route path="/products" component={ProductsView} />
-            <Route path="/shipping" component={ShippingView} />
-            <Route path="/payment" component={PaymentView} />
-            {/* <Route path="/placeorder" component={PlaceOrder} /> */}
-            <Route path="/signin" component={Signin} />
-            <Route path="/register" component={Register} />
-            <Route path="/product/:id" component={ProductView} />
-            <Route path="/category/:id" component={HomeView} />
-            <Route path="/" exact={true} component={HomeView} />
-        
+            <Routes>
+              <Route path="/" element={<Basic />} />
+               
+              {/*<Route path="/orders" element={OrdersScreen} />
+              <Route path="/profile" element={ProfileScreen} />
+              <Route path="/order/:id" element={OrderScreen} />
+              <Route path="/products" element={ProductsScreen} />
+              <Route path="/shipping" element={ShippingScreen} />
+              <Route path="/payment" element={PaymentScreen} />
+              <Route path="/placeorder" element={PlaceOrderScreen} />
+              <Route path="/signin" element={SigninScreen} />
+              <Route path="/register" element={RegisterScreen} />
+              <Route path="/product/:id" element={ProductScreen} />
+              <Route path="/cart/:id?" element={CartScreen} />
+              <Route path="/category/:id" element={HomeScreen} />*/}
+            </Routes>
           </div>
         </main>
-        <footer className="footer">All right reserved.</footer>
-      </div>
-    </BrowserRouter>
+        
+      <footer className="footer">All right reserved.</footer>
+    </Router>
+    </ApolloProvider>
   );
 }
 

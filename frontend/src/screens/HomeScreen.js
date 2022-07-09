@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-// import Rating from '../components/Rating';
+import Rating from '../components/Rating';
 
-function HomeView(props) {
+function HomeScreen(props) {
   const [searchKeyword, setSearchKeyword] = useState('');
   const [sortOrder, setSortOrder] = useState('');
   const category = props.match.params.id ? props.match.params.id : '';
@@ -74,10 +74,10 @@ function HomeView(props) {
                 <div className="product-brand">{product.brand}</div>
                 <div className="product-price">${product.price}</div>
                 <div className="product-rating">
-                  {/* <Rating
+                  <Rating
                     value={product.rating}
                     text={product.numReviews + ' reviews'}
-                  /> */}
+                  />
                 </div>
               </div>
             </li>
@@ -87,6 +87,4 @@ function HomeView(props) {
     </>
   );
 }
-export default HomeView;
-
-
+export default HomeScreen;

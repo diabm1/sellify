@@ -1,6 +1,6 @@
-import express from 'express';
-import Order from '../models/orderModel';
-import { isAuth, isAdmin } from '../util';
+const express = require ('express');
+const Order = require ('../models/orderModel');
+const { isAuth, isAdmin } = require ('../util');
 
 const router = express.Router();
 
@@ -53,7 +53,7 @@ router.put("/:id/pay", isAuth, async (req, res) => {
     order.isPaid = true;
     order.paidAt = Date.now();
     order.payment = {
-      paymentMethod: 'paypal',
+      // paymentMethod: 'paypal',
       paymentResult: {
         payerID: req.body.payerID,
         orderID: req.body.orderID,
@@ -67,4 +67,4 @@ router.put("/:id/pay", isAuth, async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

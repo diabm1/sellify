@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userActions';
 
-function Signin(props) {
+function SigninScreen(props) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,8 +18,7 @@ function Signin(props) {
     return () => {
       //
     };
-  },
-   [userInfo]);
+  }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -61,4 +60,4 @@ function Signin(props) {
     </form>
   </div>
 }
-export default Signin;
+export default SigninScreen;

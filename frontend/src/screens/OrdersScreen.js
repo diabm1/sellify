@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { listOrders, deleteOrder } from '../actions/orderActions';
 
-function Orders(props) {
+function OrdersScreen() {
   const orderList = useSelector(state => state.orderList);
   const { loading, orders, error } = orderList;
 
@@ -66,4 +66,4 @@ function Orders(props) {
       </div>
     </div>
 }
-export default Orders;
+export default OrdersScreen;
