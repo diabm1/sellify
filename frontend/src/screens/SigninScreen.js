@@ -54,7 +54,7 @@ function SigninScreen(props) {
           New to Sellify?
         </li>
         <li>
-          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your amazona account</Link>
+          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your Sellify account</Link>
         </li>
       </ul>
     </form>
