@@ -1,65 +1,62 @@
-import React, { useState, useContext } from 'react';
-import { Link } from "react-router-dom";
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { DataContext } from "./DataProvider";
+import React from "react";
+import {Link, useRoutes} from "react-router-dom"
 
-export default function Header(props) {
+function Header(){
+    // const userSignin = use((state) => userSignin);
+    // const { userInfo } = userSignin;
 
-    const [menu, setMenu] = useState(false);
-    const value = useContext(DataContext);
-    const [cart] = value.cart;
+  const openMenu = () => {
+    document.querySelector('.sidebar').classList.add('open');
+  };
+  const closeMenu = () => {
+    document.querySelector('.sidebar').classList.remove('open');
+  };
+  return (
+  
 
-    const toggleMenu = () => {
-        setMenu(!menu);
-    }
-
-    const styles = {
-
-        largeIcon: {
-            width: 28,
-            height: 28
-        },
-
-        styleMenu: {
-            top: menu ? 0 : "-100%",
-            backgroundColor: "#2b6777"
-        }
-    };
-
-    const handleChange = event => {
-        props.setSearch(event.target.value);
-    };
-
-    return (
-        <header>
-            <div className="logo">
-                <h1><Link to="/">SELLIFY</Link></h1>
-            </div>
-
-            <form action="#" autoComplete="off">
-                <input type="text" id="input-search" name="search" placeholder="Search..." onChange={handleChange} />
-            </form>
-
-            <ul style={styles.styleMenu}>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li><Link to="/register">Login/Register</Link></li>
-                <li onClick={toggleMenu}>
-                    <img src="cross.png" alt="close-menu" width="30" className="menu" />
-                </li>
-            </ul>
-
-            <div className="cart-icon">
-                <span>{cart.length}</span>
-                <Link to="/cart">
-                    {/* <ShoppingCartIcon style={styles.largeIcon} className="menu"></ShoppingCartIcon> */}
-                </Link>
-            </div>
-
-            <div className="menu" onClick={toggleMenu}>
-                <img src="menu.svg" alt="menu" width="30" />
-            </div>
-
+  
+        <div className="grid-container">
+        <header className="header">
+          <div className="brand">
+            <button onClick={openMenu}>&#9776;</button>
+            <Link to="/">Sellify</Link>
+          </div>
+          <div className="header-links">
+            <a href="cart.html">Cart</a>
+            {/* {userInfo ? (
+              <Link to="/profile">{userInfo.name}</Link>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )} */}
+            {/* {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <a href="#">Admin</a>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/orders">Orders</Link>
+                    <Link to="/products">Products</Link>
+                  </li>
+                </ul>
+              </div>
+            )} */}
+          </div>
         </header>
+        <aside className="sidebar">
+          <h3>Shopping Categories</h3>
+          <button className="sidebar-close-button" onClick={closeMenu}>
+            x
+          </button>
+          <ul className="categories">
+            <li>
+              <Link to="/category/Pants">Pants</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Shirts">Shirts</Link>
+            </li>
+          </ul>
+        </aside>
+        </div>
     )
 }
+export default Header;

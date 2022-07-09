@@ -1,42 +1,75 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import { Routes, Route, Navigate, } from "react-router-dom";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-// import Products from "./components/Products";
-import { DataProvider } from "./components/DataProvider";
-// import Details from "./components/Details/Details";
-// import Cart from "./components/Cart";
-// import Register from "./components/Signup/Register";
-// import Error from "./components/Error";
+import React from 'react';
+import { BrowserRouter as  Router, Route, Routes} from 'react-router-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost'
+import './App.css';
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
+// import { useSelector } from 'react-redux';
+import RegisterScreen from './screens/RegisterScreen';
+import ProductsScreen from './screens/ProductsScreen';
+import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import OrdersScreen from './screens/OrdersScreen';
+import Header from './components/Header';
+//import { Component } from 'react';
+
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
+  uri: "/graphql",
+});
+
+function Basic() {
+  return <h1>Hello</h1>
+}
+
 
 function App() {
-
-  const [search, setSearch] = useState("");
-
+  
+  
   return (
-    <DataProvider>
-      
-              <Routes>
-          <Route exact path="/error404" element={Error} />
-          <Route>
-
-            <Header />
-            <Route>
-              <Route exact path="/" component={Home} />
-              {/* <Route exact path="/products" component={() => <Products search={search} />} /> */}
-              {/* <Route exact path="/products/:id" component={Details} /> */}
-              {/* <Route exact path="/cart" component={Cart} /> */}
-              {/* <Route exact path="/register" component={Register} /> */}
-              <Navigate to="/error404" />
-              {/* <Products /> */}
-            </Route>
-            <Footer />
-            
-          </Route>
-        </Routes>
-    
-     </DataProvider>
+    <ApolloProvider client ={client}>
+    <Router>
+      <Header />
+        
+        <main className="main">
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Basic />} />
+               
+              {/*<Route path="/orders" element={OrdersScreen} />
+              <Route path="/profile" element={ProfileScreen} />
+              <Route path="/order/:id" element={OrderScreen} />
+              <Route path="/products" element={ProductsScreen} />
+              <Route path="/shipping" element={ShippingScreen} />
+              <Route path="/payment" element={PaymentScreen} />
+              <Route path="/placeorder" element={PlaceOrderScreen} />
+              <Route path="/signin" element={SigninScreen} />
+              <Route path="/register" element={RegisterScreen} />
+              <Route path="/product/:id" element={ProductScreen} />
+              <Route path="/cart/:id?" element={CartScreen} />
+              <Route path="/category/:id" element={HomeScreen} />*/}
+            </Routes>
+          </div>
+        </main>
+        
+      <footer className="footer">All right reserved.</footer>
+    </Router>
+    </ApolloProvider>
   );
 }
 
