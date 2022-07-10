@@ -23,12 +23,12 @@ button {
     'main'
     'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 7rem 1fr 7rem;
   height: 100%;
 }
 .header {
   grid-area: header;
-  background-color: #203040;
+  background-color: #3887d6;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -47,7 +47,7 @@ button {
   padding: 1rem;
 }
 .header-links a:hover {
-  color: #ff8000;
+  color: #38373b;
 }
 .main {
   grid-area: main;
@@ -64,7 +64,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: #503010;
 }
 /* Home Screen */
 .products {

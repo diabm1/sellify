@@ -1,76 +1,86 @@
 import React from 'react';
-import { BrowserRouter as  Router, Route, Routes} from 'react-router-dom';
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import HomePage from './Pages/HomePage';
+import ProductPage from './Pages/ProductPage';
+
 import './App.css';
-// import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
-import CartScreen from './screens/CartScreen';
-import SigninScreen from './screens/SigninScreen';
-// import { useSelector } from 'react-redux';
-import RegisterScreen from './screens/RegisterScreen';
-import ProductsScreen from './screens/ProductsScreen';
-import ShippingScreen from './screens/ShippingScreen';
-import PaymentScreen from './screens/PaymentScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import OrderScreen from './screens/OrderScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import OrdersScreen from './screens/OrdersScreen';
-import Header from './components/Header';
-//import { Component } from 'react';
+import data from './data';
+import { Link } from 'react-router-dom';
 
 
-const client = new ApolloClient({
-  request: (operation) => {
-    const token = localStorage.getItem("id_token");
 
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    });
-  },
-  uri: "/graphql",
-});
-
-function Basic() {
-  return <h1>Hello</h1>
+const openMenu =() => {
+  document.querySelector(".sidebar").classList.add("open");
 }
-
+const closeMenu =() => {
+  document.querySelector(".sidebar").classList.remove("open");
+}
 
 function App() {
   
-  
+ 
   return (
-    <ApolloProvider client ={client}>
-    <Router>
-      <Header />
-        
-        <main className="main">
-          <div className="content">
+    <Router> 
+    <div className="grid-container">
+        <header className="header">
+          <div className="brand">
+            <button onClick={openMenu}>&#9779;</button>
+            <Link to={'/'} >Sellify</Link>
+          </div>
+          <div className="header-links">
+            <a href="cart.html">Cart</a>
+            
+              <a href='index.html'>{}</a>
+            
+              <a href='index.html'>SignIn</a>
+          
+            
+              <div className="dropdown">
+                <a href="#">Admin</a>
+                <ul className="dropdown-content">
+                  <li>
+                  <a href='index.html'>Orders</a>
+                  <a href='index.html'>Products</a>
+                  </li>
+                </ul>
+              </div>
+            
+          </div>
+        </header>
+        <main className= "main">
+          <div className= "content">
+            
             <Routes>
-              <Route path="/" element={<Basic />} />
-               
-              <Route path="/orders" element={<OrdersScreen />} />
-              <Route path="/profile" element={<ProfileScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />} />
-              <Route path="/products" element={<ProductsScreen/>} />
-              <Route path="/shipping" element={<ShippingScreen />} />
-              <Route path="/payment" element={<PaymentScreen />} />
-              <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/signin" element={<SigninScreen />} />
-              <Route path="/register" element={<RegisterScreen />} />
-              <Route path="/product/:id" element={<ProductScreen />} />
-              <Route path="/cart/:id?" element={<CartScreen />} />
-              {/* <Route path="/category/:id" element={HomeScreen} /> */}
+            
+            <Route path='/products/:id' element = {<ProductPage />} />
+            <Route path='/' exact={true} element= {<HomePage />} />
+
             </Routes>
+            
           </div>
         </main>
-        
-      <footer className="footer">All right reserved.</footer>
-    </Router>
-    </ApolloProvider>
-  );
+        <aside className="sidebar">
+          <h3>Shopping Categories</h3>
+          <button className="sidebar-close-button" onClick={closeMenu}>
+            x
+          </button>
+          <ul className="categories">
+            <li>
+              <a href='index.html'>Pants</a>
+            </li>
+
+            <li>
+            <a href='index.html'>Shirts</a>
+            </li>
+          </ul>
+        </aside>
+        <footer className="footer">All right reserved.</footer>
+        </div>
+        </Router>   
+    )
 }
+     
+  
+
 
 export default App;
