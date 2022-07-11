@@ -14,7 +14,6 @@ function SigninScreen(props) {
   useEffect(() => {
     if (userInfo) {
       navigate("/profile");
-le      ;
     }
     return () => {
       //
