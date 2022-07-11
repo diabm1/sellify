@@ -1,19 +1,19 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import Cookie from 'js-cookie';
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import Cookie from "js-cookie";
 import {
   productListReducer,
   productDetailsReducer,
   productSaveReducer,
   productDeleteReducer,
   productReviewSaveReducer,
-} from './reducers/productReducers';
-import { cartReducer } from './reducers/cartReducers';
+} from "./reducers/productReducers";
+import { cartReducer } from "./reducers/cartReducers";
 import {
   userSigninReducer,
   userRegisterReducer,
   userUpdateReducer,
-} from './reducers/userReducers';
+} from "./reducers/userReducers";
 import {
   orderCreateReducer,
   orderDetailsReducer,
@@ -21,10 +21,10 @@ import {
   myOrderListReducer,
   orderListReducer,
   orderDeleteReducer,
-} from './reducers/orderReducers';
+} from "./reducers/orderReducers";
 
-const cartItems = Cookie.getJSON('cartItems') || [];
-const userInfo = Cookie.getJSON('userInfo') || null;
+const cartItems = Cookie.get("cartItems") || [];
+const userInfo = Cookie.get("userInfo") || null;
 
 const initialState = {
   cart: { cartItems, shipping: {}, payment: {} },

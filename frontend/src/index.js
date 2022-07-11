@@ -1,13 +1,11 @@
-import React from 'react';
-// import { Provider } from 'react-redux';
+import React from "react";
+import { Provider } from "react-redux";
 //import ReactDOM from 'react-dom/client';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App";
 
-// import store from './store';
-
-
+import store from "./store";
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -16,10 +14,12 @@ import App from './App';
 //   document.getElementById('root')
 // );
 
-const root = createRoot(document.getElementById('root'))
+const root = createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
-)
+);
