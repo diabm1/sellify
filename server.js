@@ -2,9 +2,24 @@
 
 import express from "express";
 import data from './backend/data';
+import dotenv from 'dotenv';
+import config from "./backend/config";
+import mongoose from 'mongoose';
+import userRoute from './backend/routes/userRoute';
+
+dotenv.config();
+
+const mongodbUrl = config.MONGODB_URL;
+mongoose.connect(mongodbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+}).catch(error => console.log(error.reason ));
+
 
 const app = express();
 
+app.use('/api/user', userRoute);
 app.get("/api/products/:id", (req, res) =>{
     const productId = req.params.id;
     res.send(data.products.find(e => e.id === productId));

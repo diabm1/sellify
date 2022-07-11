@@ -1,5 +1,5 @@
 
-const products=
+const products =
  {
   products: [
     {
@@ -61,7 +61,7 @@ const products=
       brand: ' Nike',
       rating: 4.5,
       numReviews: 8
-    },
+    }
   ]
 };
 

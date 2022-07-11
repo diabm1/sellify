@@ -5,6 +5,7 @@ import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage';
 import './App.css';
 import { Link } from 'react-router-dom';
+import SignInPage from './Pages/SignInPage';
 
 
 
@@ -27,11 +28,11 @@ function App() {
             <Link to={'/'} >Sellify</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
-            
+           <Link to = {'/CartPage'}>Cart</Link>
+            {/* admin ref */}
               <a href='index.html'>{}</a>
             
-              <a href='index.html'>SignIn</a>
+             <Link to={'./SignInPage'}>SignIn</Link>
           
             
               <div className="dropdown">
@@ -50,7 +51,7 @@ function App() {
           <div className= "content">
             
             <Routes>
-            
+            <Route path='/signin' element = {<SignInPage />} />
             <Route path='/products/:id' element = {<ProductPage />} />
             <Route path = '/cart/:id?' element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
