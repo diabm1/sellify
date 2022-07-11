@@ -49,9 +49,8 @@ function App() {
         <main className="main">
           <div className="content">
             <Routes>
-              <Route path="/" element={<Basic />} />
-               
-              {/*<Route path="/orders" element={OrdersScreen} />
+              <Route path="/" element={<Basic />} />               
+              <Route path="/orders" element={OrdersScreen} />
               <Route path="/profile" element={ProfileScreen} />
               <Route path="/order/:id" element={OrderScreen} />
               <Route path="/products" element={ProductsScreen} />
@@ -62,7 +61,7 @@ function App() {
               <Route path="/register" element={RegisterScreen} />
               <Route path="/product/:id" element={ProductScreen} />
               <Route path="/cart/:id?" element={CartScreen} />
-              <Route path="/category/:id" element={HomeScreen} />*/}
+              <Route path="/category/:id" element={HomeScreen} />
             </Routes>
           </div>
         </main>
