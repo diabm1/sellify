@@ -2,9 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
-
+import CartPage from './Pages/CartPage';
 import './App.css';
-import data from './data';
 import { Link } from 'react-router-dom';
 
 
@@ -36,7 +35,7 @@ function App() {
           
             
               <div className="dropdown">
-                <a href="#">Admin</a>
+                <a href="index.html">Admin</a>
                 <ul className="dropdown-content">
                   <li>
                   <a href='index.html'>Orders</a>
@@ -53,6 +52,7 @@ function App() {
             <Routes>
             
             <Route path='/products/:id' element = {<ProductPage />} />
+            <Route path = '/cart/:id?' element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
 
             </Routes>
@@ -75,7 +75,7 @@ function App() {
           </ul>
         </aside>
         <footer className="footer">All right reserved.</footer>
-        </div>
+      </div>
         </Router>   
     )
 }
