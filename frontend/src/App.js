@@ -3,21 +3,27 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage';
+import RegisterPage from './Pages/RegisterPage';
 import './App.css';
 import { Link } from 'react-router-dom';
 import SignInPage from './Pages/SignInPage';
+import {useSelector} from 'react-redux'
 
-
-
-const openMenu =() => {
-  document.querySelector(".sidebar").classList.add("open");
-}
-const closeMenu =() => {
-  document.querySelector(".sidebar").classList.remove("open");
-}
 
 function App() {
-  
+const openMenu =() => {
+  document.querySelector(".sidebar").classList.add("open");
+};
+const closeMenu =() => {
+  document.querySelector(".sidebar").classList.remove("open");
+};
+
+// *breaks our code*
+
+  // const userSignin = useSelector(state => state.userSignin);
+  // const { userInfo } = userSignin;
+
+
  
   return (
     <Router> 
@@ -32,7 +38,7 @@ function App() {
             {/* admin ref */}
               <a href='index.html'>{}</a>
             
-             <Link to={'./SignInPage'}>SignIn</Link>
+             <Link to={'./signin'}>SignIn</Link>
           
             
               <div className="dropdown">
@@ -52,7 +58,8 @@ function App() {
             
             <Routes>
             <Route path='/signin' element = {<SignInPage />} />
-            <Route path='/products/:id' element = {<ProductPage />} />
+            <Route path='/register' element = {<RegisterPage />} />
+            <Route path='/product/:id' element = {<ProductPage />} />
             <Route path = '/cart/:id?' element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
 
@@ -78,7 +85,7 @@ function App() {
         <footer className="footer">All right reserved.</footer>
       </div>
         </Router>   
-    )
+    );
 }
      
   
