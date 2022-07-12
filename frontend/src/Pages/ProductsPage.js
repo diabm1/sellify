@@ -7,7 +7,7 @@ import {
   deleteProdcut,
 } from '../actions/productActions';
 
-function ProductsScreen(props) {
+function ProductsPage(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [id, setId] = useState('');
   const [name, setName] = useState('');
@@ -244,4 +244,4 @@ function ProductsScreen(props) {
     </div>
   );
 }
-export default ProductsScreen;
+export default ProductsPage;

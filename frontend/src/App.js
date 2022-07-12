@@ -7,7 +7,11 @@ import RegisterPage from './Pages/RegisterPage';
 import './App.css';
 import { Link } from 'react-router-dom';
 import SignInPage from './Pages/SignInPage';
-import {useSelector} from 'react-redux'
+import ProfilePage from './Pages/ProfilePage';
+import ProductsPage from './Pages/ProductsPage';
+import ShippingPage from './Pages/ShippingPage'
+import {Provider, useSelector} from 'react-redux'
+// import store from './store'
 
 
 function App() {
@@ -55,16 +59,19 @@ const closeMenu =() => {
         </header>
         <main className= "main">
           <div className= "content">
-            
-            <Routes>
+            {/* <Provider store={store}> */}
+            <Routes >
+            <Route path='/shipping' element = {<ShippingPage />} />
+            <Route path='/profile' element = {<ProfilePage />} />
             <Route path='/signin' element = {<SignInPage />} />
             <Route path='/register' element = {<RegisterPage />} />
-            <Route path='/product/:id' element = {<ProductPage />} />
+            <Route path='/products/' element = {<ProductsPage />} />
+            <Route path='/products/:id' element = {<ProductPage />} />
             <Route path = '/cart/:id?' element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
 
             </Routes>
-            
+            {/* </Provider> */}
           </div>
         </main>
         <aside className="sidebar">
