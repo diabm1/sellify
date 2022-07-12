@@ -1,9 +1,11 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userActions';
 
-function SigninScreen(props) {
+function SignInPage(props) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,10 +56,10 @@ function SigninScreen(props) {
           New to Sellify?
         </li>
         <li>
-          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your amazona account</Link>
+          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your Sellify account</Link>
         </li>
       </ul>
     </form>
   </div>
 }
-export default SigninScreen;
+export default SignInPage;
