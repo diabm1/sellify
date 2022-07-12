@@ -18,17 +18,17 @@ function Header(){
         <div className="grid-container">
         <header className="header">
           <div className="brand">
-            <button onClick={openMenu}>&#9776;</button>
+            <button onClick={openMenu}>&#9779;</button>
             <Link to="/">Sellify</Link>
           </div>
           <div className="header-links">
             <a href="cart.html">Cart</a>
-            {/* {userInfo ? (
-              <Link to="/profile">{userInfo.name}</Link>
-            ) : (
+            
+              <Link to="/profile">{}</Link>
+            
               <Link to="/signin">Sign In</Link>
-            )} */}
-            {/* {userInfo && userInfo.isAdmin && (
+          
+            
               <div className="dropdown">
                 <a href="#">Admin</a>
                 <ul className="dropdown-content">
@@ -38,9 +38,81 @@ function Header(){
                   </li>
                 </ul>
               </div>
-            )} */}
+            
           </div>
         </header>
+        <main class= "main">
+          <div class= "content">
+            <ul class= "products">
+              <li>
+                <div class= "product">
+                  <img class= "product-image" src="images/d1.jpg" alt="product"/>
+                  <div class= "product-name">
+                    <a href="product.html"> sexy shirt</a>
+                  </div>
+                  <div class = "product-brand">Nordstrom</div>
+                  <div class = "product-price"> $20</div>
+                  <div class= "product-rating"> 4.5 Stars (50 Reviews)</div>
+                </div>
+              </li>
+              <li>
+                <div class= "product">
+                  <img class= "product-image" src="images/d1.jpg" alt="product"/>
+                  <div class= "product-name">
+                    <a href="product.html"> sexy shirt</a>
+                  </div>
+                  <div class = "product-brand">Nordstrom</div>
+                  <div class = "product-price"> $20</div>
+                  <div class= "product-rating"> 4.5 Stars (50 Reviews)</div>
+                </div>
+              </li>
+              <li>
+                <div class= "product">
+                  <img class= "product-image" src="images/d1.jpg" alt="product"/>
+                  <div class= "product-name">
+                    <a href="product.html"> sexy shirt</a>
+                  </div>
+                  <div class = "product-brand">Nordstrom</div>
+                  <div class = "product-price"> $20</div>
+                  <div class= "product-rating"> 4.5 Stars (50 Reviews)</div>
+                </div>
+              </li>
+              <li>
+                <div class= "product">
+                  <img class= "product-image" src="images/d1.jpg" alt="product"/>
+                  <div class= "product-name">
+                    <a href="product.html"> sexy shirt</a>
+                  </div>
+                  <div class = "product-brand">Nordstrom</div>
+                  <div class = "product-price"> $20</div>
+                  <div class= "product-rating"> 4.5 Stars (50 Reviews)</div>
+                </div>
+              </li>
+              <li>
+                <div class= "product">
+                  <img class= "product-image" src="images/d1.jpg" alt="product"/>
+                  <div class= "product-name">
+                    <a href="product.html"> sexy shirt</a>
+                  </div>
+                  <div class = "product-brand">Nordstrom</div>
+                  <div class = "product-price"> $20</div>
+                  <div class= "product-rating"> 4.5 Stars (50 Reviews)</div>
+                </div>
+              </li>
+              <li>
+                <div class= "product">
+                  <img class= "product-image" src="images/d1.jpg" alt="product"/>
+                  <div class= "product-name">
+                    <a href="product.html"> sexy shirt</a>
+                  </div>
+                  <div class = "product-brand">Nordstrom</div>
+                  <div class = "product-price"> $20</div>
+                  <div class= "product-rating"> 4.5 Stars (50 Reviews)</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </main>
         <aside className="sidebar">
           <h3>Shopping Categories</h3>
           <button className="sidebar-close-button" onClick={closeMenu}>
