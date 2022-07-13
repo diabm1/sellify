@@ -23,8 +23,8 @@ import {
   orderDeleteReducer,
 } from './reducers/orderReducers';
 
-const cartItems = Cookie.getJSON('cartItems') || [];
-const userInfo = Cookie.getJSON('userInfo') || null;
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+const userInfo = JSON.parse(localStorage.getItem('userInfo')) || null;
 
 const initialState = {
   cart: { cartItems, shipping: {}, payment: {} },

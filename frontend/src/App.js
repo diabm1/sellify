@@ -58,16 +58,16 @@ const closeMenu =() => {
           </div>
         </header>
         <main className= "main">
-          <div className= "content">
-            {/* <Provider store={store}> */}
+          <div className= "content">sample text
+            {/* <Provider> */}
             <Routes >
-            <Route path='/shipping' element = {<ShippingPage />} />
-            <Route path='/profile' element = {<ProfilePage />} />
-            <Route path='/signin' element = {<SignInPage />} />
-            <Route path='/register' element = {<RegisterPage />} />
-            <Route path='/products/' element = {<ProductsPage />} />
-            <Route path='/products/:id' element = {<ProductPage />} />
-            <Route path = '/cart/:id?' element = {<CartPage />} />
+            <Route path='/shipping' exact={true} element = {<ShippingPage />} />
+            <Route path='/profile' exact={true} element = {<ProfilePage />} />
+            <Route path='/signin' exact={true} element = {<SignInPage />} />
+            <Route path='/register' exact={true} element = {<RegisterPage />} />
+            <Route path='/products/' exact={true} element = {<ProductsPage />} />
+            <Route path='/products/:id'exact={true} element = {<ProductPage />} />
+            <Route path = '/cart/:id?' exact={true} element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
 
             </Routes>

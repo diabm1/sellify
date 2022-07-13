@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {useSelector, useDispatch} from "react-redux";
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Rating from '../components/Rating'
 import { detailsProduct, saveProductReview } from "../actions/productActions";
 import { PRODUCT_REVIEW_SAVE_RESET } from '../constants/productConstants';
 
 function ProductPage(props){
-    
+    const params= useParams()
+console.log(params)
     // console.log(props.match.params.id);
     // const products = data.products.find((e) => e.id === props.match.params.id);
     // if(!products){
@@ -18,6 +19,7 @@ function ProductPage(props){
     const userSignin = useSelector((state) => state.userSignin);
     const { userInfo } = userSignin;
     const productDetails = useSelector((state) => state.productDetails);
+    console.log(productDetails)
     const { product, loading, error } = productDetails;
     const productReviewSave = useSelector((state) => state.productReviewSave);
     const { success: productSaveSuccess } = productReviewSave;
@@ -31,7 +33,7 @@ function ProductPage(props){
             setComment('');
             dispatch({ type: PRODUCT_REVIEW_SAVE_RESET });
           }
-          dispatch(detailsProduct(props.match.params.id));
+          dispatch(detailsProduct(params.id));
           return () => {
             //
           };
@@ -40,7 +42,7 @@ function ProductPage(props){
           e.preventDefault();
           // dispatch actions
           dispatch(
-            saveProductReview(props.match.params.id, {
+            saveProductReview(params.id, {
               name: userInfo.name,
               rating: rating,
               comment: comment,
@@ -48,7 +50,7 @@ function ProductPage(props){
           );
         };
         const handleAddToCart = () => {
-          props.history.push('/cart/' + props.match.params.id + '?qty=' + qty);
+          props.history.push('/cart/' + params.id + '?qty=' + qty);
         };
       
     
@@ -124,7 +126,7 @@ return (
               </ul>
             </div>
           </div>
-          <div className="content-margined">
+          {/* <div className="content-margined">
             <h2>Reviews</h2>
             {!product.reviews.length && <div>There is no review</div>}
             <ul className="review" id="reviews">
@@ -180,7 +182,7 @@ return (
                 )}
               </li>
             </ul>
-          </div>
+          </div> */}
         </>
       )}
     </div>

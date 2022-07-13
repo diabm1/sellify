@@ -9,7 +9,6 @@ import bodyParser from 'body-parser'
 import userRoute from './backend/routes/userRoute';
 import productRoute from './backend/routes/productRoute'
 import orderRoute from './backend/routes/orderRoute'
-import config from './comfig';
 import path from 'path';
 
 
