@@ -13,7 +13,7 @@
 Inspired by the popular web service [Shopify](https://www.shopify.com/), this project attempts to recreate a similar e-commerce platform with all the functionality of a modern website.
 
 # Usage
- 
+
 To use this application, start by navigating to the website here: [Sellify](). From the home page, you can view all of the available products on Sellify. When any of the products are selected, you will be taken to that product's page.
 
 The product page contains all of the relevant information about that product including the name, price, description, and any reviews that other users have left for that product.
@@ -28,7 +28,7 @@ To view all of the products in your cart, find the Cart button at the top of the
 
 # Credits
 
-1. [Adam Thomas]()
+1. [Adam Thomas](https://github.com/adam32thomas)
 2. [Brian Short](https://github.com/bshort985)
 3. [Josiah Douglas](https://github.com/BluCheeseSlushi)
 4. [Mitchell George](https://github.com/mitchgeorge8)
