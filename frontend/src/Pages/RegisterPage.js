@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../actions/userActions';
 
@@ -8,20 +8,20 @@ function RegisterPage(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rePassword, setRePassword] = useState('');
+  const [, setRePassword] = useState('');
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
   const dispatch = useDispatch();
-
+  const navigate = useNavigate(); 
   const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   useEffect(() => {
     if (userInfo) {
-      props.history.push(redirect);
+      navigate(redirect);
     }
     return () => {
       //
     };
-  }, [userInfo]);
+  }, [navigate, redirect, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();

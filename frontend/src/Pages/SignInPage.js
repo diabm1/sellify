@@ -18,7 +18,7 @@ function SignInPage(props) {
     return () => {
       //
     };
-  }, [redirect, userInfo]);
+  }, [navigate, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
