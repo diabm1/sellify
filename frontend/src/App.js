@@ -38,7 +38,7 @@ const closeMenu =() => {
             <Link to={'/'} >Sellify</Link>
           </div>
           <div className="header-links">
-           <Link to = {'/CartPage'}>Cart</Link>
+           <Link to = {'/cartpage'}>Cart</Link>
             {/* admin ref */}
               <a href='index.html'>{}</a>
             
@@ -65,9 +65,10 @@ const closeMenu =() => {
             <Route path='/profile' exact={true} element = {<ProfilePage />} />
             <Route path='/signin' exact={true} element = {<SignInPage />} />
             <Route path='/register' exact={true} element = {<RegisterPage />} />
-            <Route path='/products/' exact={true} element = {<ProductsPage />} />
+            <Route path='/products' exact={true} element = {<ProductsPage />} />
             <Route path='/products/:id'exact={true} element = {<ProductPage />} />
             <Route path = '/cart/:id?' exact={true} element = {<CartPage />} />
+            <Route path = '/cartpage' exact={true} element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
 
             </Routes>

@@ -7,7 +7,7 @@ import { PRODUCT_REVIEW_SAVE_RESET } from '../constants/productConstants';
 
 function ProductPage(props){
     const params= useParams()
-console.log(params)
+// console.log(params)
     // console.log(props.match.params.id);
     // const products = data.products.find((e) => e.id === props.match.params.id);
     // if(!products){
