@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import {listProducts} from '../actions/productActions';
+import Rating from '../components/Rating';
+import { useSelector } from "react-redux";
 import axios from "axios"
 
 

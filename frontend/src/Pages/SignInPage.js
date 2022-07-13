@@ -9,9 +9,8 @@ function SignInPage(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
-  // const search = useSearchParams();
   const navigate = useNavigate();
-  const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
+  const redirect =  '/';
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
@@ -19,7 +18,7 @@ function SignInPage(props) {
     return () => {
       //
     };
-  }, [navigate, redirect, userInfo]);
+  }, [redirect, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
