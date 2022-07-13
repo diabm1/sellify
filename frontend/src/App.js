@@ -3,21 +3,31 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage';
+import RegisterPage from './Pages/RegisterPage';
 import './App.css';
 import { Link } from 'react-router-dom';
 import SignInPage from './Pages/SignInPage';
+import ProfilePage from './Pages/ProfilePage';
+import ProductsPage from './Pages/ProductsPage';
+import ShippingPage from './Pages/ShippingPage'
+import {Provider, useSelector} from 'react-redux'
+// import store from './store'
 
-
-
-const openMenu =() => {
-  document.querySelector(".sidebar").classList.add("open");
-}
-const closeMenu =() => {
-  document.querySelector(".sidebar").classList.remove("open");
-}
 
 function App() {
-  
+const openMenu =() => {
+  document.querySelector(".sidebar").classList.add("open");
+};
+const closeMenu =() => {
+  document.querySelector(".sidebar").classList.remove("open");
+};
+
+// *breaks our code*
+
+  // const userSignin = useSelector(state => state.userSignin);
+  // const { userInfo } = userSignin;
+
+
  
   return (
     <Router> 
@@ -28,11 +38,11 @@ function App() {
             <Link to={'/'} >Sellify</Link>
           </div>
           <div className="header-links">
-           <Link to = {'/CartPage'}>Cart</Link>
+           <Link to = {'/cartpage'}>Cart</Link>
             {/* admin ref */}
               <a href='index.html'>{}</a>
             
-             <Link to={'./SignInPage'}>SignIn</Link>
+             <Link to={'./signin'}>SignIn</Link>
           
             
               <div className="dropdown">
@@ -48,16 +58,21 @@ function App() {
           </div>
         </header>
         <main className= "main">
-          <div className= "content">
-            
-            <Routes>
-            <Route path='/signin' element = {<SignInPage />} />
-            <Route path='/products/:id' element = {<ProductPage />} />
-            <Route path = '/cart/:id?' element = {<CartPage />} />
+          <div className= "content">sample text
+            {/* <Provider> */}
+            <Routes >
+            <Route path='/shipping' exact={true} element = {<ShippingPage />} />
+            <Route path='/profile' exact={true} element = {<ProfilePage />} />
+            <Route path='/signin' exact={true} element = {<SignInPage />} />
+            <Route path='/register' exact={true} element = {<RegisterPage />} />
+            <Route path='/products' exact={true} element = {<ProductsPage />} />
+            <Route path='/products/:id'exact={true} element = {<ProductPage />} />
+            <Route path = '/cart/:id?' exact={true} element = {<CartPage />} />
+            <Route path = '/cartpage' exact={true} element = {<CartPage />} />
             <Route path='/' exact={true} element= {<HomePage />} />
 
             </Routes>
-            
+            {/* </Provider> */}
           </div>
         </main>
         <aside className="sidebar">
@@ -78,7 +93,7 @@ function App() {
         <footer className="footer">All right reserved.</footer>
       </div>
         </Router>   
-    )
+    );
 }
      
   
