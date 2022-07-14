@@ -1,5 +1,5 @@
 import React from "react";
-import Shop from "../screens/Shop";
+import Shop from "../pages/Shop";
 
 function Home() {
     const handleClick=()=>{

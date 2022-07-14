@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
-import Nav from "./components/Nav";
-import Page from "./components/Page.js";
+import Nav from "./components/Nav/Nav";
+import Page from "./pages/Page";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
