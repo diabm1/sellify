@@ -3,7 +3,7 @@ import PageContent from './PageContent';
 import Contact from '../screens/Contact';
 import Shop from "../screens/Shop";
 import Cart from "../screens/Cart"
-import SignIn from "../components/SignIn"
+import SignIn from "../components copy/SignIn"
 
 import { capitalizeFirstLetter } from "../utils/helpers";
 
