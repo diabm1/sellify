@@ -1,23 +1,37 @@
-// import React from "react"
+const express = require('express');
+// import ApolloServer
+const { ApolloServer } = require('apollo-server-express');
 
-const express = require("express")
-const data = require("./data")
-const config = require("./config");
-const mongoose = require('mongoose');
+// import our typeDefs and resolvers
+const { typeDefs, resolvers } = require('./schemas');
+const db = require('./config/connection');
 
-
-const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(mongodbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-}).catch(error => console.log(error.reason ));
-
+const PORT = process.env.PORT || 3001;
+// create a new Apollo server and pass in our schema data
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
 
 const app = express();
 
-app.get("/api/products", (req, res) =>{
-    res.send(data.products);
-});
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-app.listen(5000, () => {console.log('Server started at http://localhost:5000')})
+// Create a new instance of an Apollo server with the GraphQL schema
+const startApolloServer = async (typeDefs, resolvers) => {
+await server.start();
+// integrate our Apollo server with the Express application as middleware
+server.applyMiddleware({ app });
+
+db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      // log where we can go to test our GQL API
+      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    })
+  })
+};
+
+// Call the async function to start the server
+startApolloServer(typeDefs, resolvers);
