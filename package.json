@@ -4,7 +4,8 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "nodemon --watch backend --exec babel-node server.js"
+        "start": "nodemon --watch backend --exec babel-node server.js",
+        "install": "cd backend && npm i && cd ../frontend && npm i"
     },
     "keywords": [],
     "author": "",

@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Sellify <!-- omit in toc -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents <!-- omit in toc -->
 
-## Available Scripts
+- [Description](#description)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Version History](#version-history)
+- [License](#license)
 
-In the project directory, you can run:
+# Description
 
-### `npm start`
+Inspired by the popular web service [Shopify](https://www.shopify.com/), this project attempts to recreate a similar e-commerce platform with all the functionality of a modern website.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To use this application, start by navigating to the website here: [Sellify](). From the home page, you can view all of the available products on Sellify. When any of the products are selected, you will be taken to that product's page.
 
-### `npm test`
+The product page contains all of the relevant information about that product including the name, price, description, and any reviews that other users have left for that product.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before adding products to your cart, you must login/signup. Find the login/signup button in the navbar at the top. Follow the prompts to sign up, or login using your existing credentials. Once logged in, you can now add products to your cart.
 
-### `npm run build`
+To view all of the products in your cart, find the Cart button at the top of the page. From there, you can view and edit all of the products in your cart.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshot: <!-- omit in toc -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Sellify home page]()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Credits
 
-### `npm run eject`
+1. [Adam Thomas](https://github.com/adam32thomas)
+2. [Brian Short](https://github.com/bshort985)
+3. [Josiah Douglas](https://github.com/BluCheeseSlushi)
+4. [Mitchell George](https://github.com/mitchgeorge8)
+5. [Motasem Diab](https://github.com/diabm1)
+6. [Olamide Bello](https://github.com/olacase)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Version History
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 1.0 - Initial release
+  - See [commits](https://github.com/diabm1/sellify/commits)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
-## Learn More
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
